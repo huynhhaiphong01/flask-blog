@@ -1,0 +1,95 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Clean Blog - Start Bootstrap Theme</title>
+    <link href="{{ url_for('static', filename='styleAbout.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styleAll.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+    <section id="nav-section">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+
+                {% if user %}
+                <li><a href="{{ url_for('add') }}">Add</a></li>
+                <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                <li style="padding-left:650px"><a href="{{ url_for('login') }}">{{user}}</a></li>
+                {% else %}
+                <li><a href="#">Add</a></li>
+                <li style="padding-left:700px"><a href="{{ url_for('login') }}">Login</a></li>
+                {%endif %}
+            </ul>
+        </nav>
+    </section>
+
+    <section id="about">
+        <div class="gt">
+            <h1>About Us</h1>
+            <h2>Xin chào, Chúng tôi là nhóm của môn Lập trình Python đến từ lớp 19TCLC_Nhat1 của trường Đại học Bách Khoa Đà Nẵng. </h2>
+            <h3>Các thành viên của nhóm chúng tôi bao gồm:</h3>
+            <ol>
+                <li>Nguyễn Anh Phương</li>
+                <li>Huỳnh Hải Phong</li>
+                <li>Nguyễn Công Nguyên</li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="pro">
+        <div class="team_profile">
+            <div class="team">
+                <div class="team_member">
+                    <div class="team_img">
+                        <img src="../static/phong.jpg" alt="Team_image">
+                    </div>
+                    <h3>Hải Phong</h3>
+                    <p class="Class">19TCLC_Nhat1 </p>
+                    <p>25/01/2001</p>
+                    <p>Huế</p>
+                </div>
+
+                <div class="team_member">
+                    <div class="team_img">
+                        <img src="https://scontent.fdad1-2.fna.fbcdn.net/v/t1.6435-9/101755934_2726912160864843_5049424668958049408_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=jNX7ZUZiTAIAX8YCvd9&_nc_ht=scontent.fdad1-2.fna&oh=e6f8c9456e07d1649f8dd2c665c53918&oe=61BFCC25" alt="Team_image">
+                    </div>
+                    <h3>Anh Phương</h3>
+                    <p class="Class">19TCLC_Nhat1 </p>
+                    <p>05/08/2001</p>
+                    <p>Quảng Bình</p>
+                </div>
+
+                <div class="team_member">
+                    <div class="team_img">
+                        <img src="../static/nguyen.jpg" alt="Team_image">
+                    </div>
+                    <h3>Công Nguyên</h3>
+                    <p class="Class">19TCLC_Nhat1 </p>
+                    <p>24/11/2001</p>
+                    <p>Huế</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>Project Python</p>
+        <p>Nguyễn Anh Phương, Huỳnh Hải Phong, Nguyễn Công Nguyên</p>
+    </footer>
+
+
+
+</body>
+
+</html>

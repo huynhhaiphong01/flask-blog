@@ -1,0 +1,85 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Flask Blog</title>
+    <link href="{{ url_for('static', filename='styleAdd.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styleAll.css') }}" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <section id="nav-section">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('add') }}">Add</a></li>
+                <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                <li style="padding-left:650px"><a href="{{ url_for('login') }}">{{user}}</a></li>
+            </ul>
+        </nav>
+    </section>
+
+
+    <header>
+        <div>
+            <h1>Update Post</h1>
+            <p>You can update blog post here.</p>
+        </div>
+    </header>
+
+
+
+
+    <form name="updateForm" method="POST" action="{{ url_for('updatepost',post_id=post.id) }}">
+        <div>
+
+            <label>Title</label>
+            <input type="text" name="title" required data-validation-required-message="Please enter title." value="{{post.title}}">
+        </div>
+        <div>
+            <label>Subtitle</label>
+            <input type="text" name="subtitle" required data-validation-required-message="Please enter subtitle" value="{{post.subtitle}}">
+        </div>
+        <div>
+            <label>Author</label>
+            <!--<input type="text" name="author" id="author" required data-validation-required-message="Please enter your phone number.">-->
+            <input type="text" name="author" value="{{post.author}}" readonly>
+
+        </div>
+        <div>
+            <label>Blog Content</label>
+            <textarea rows="5" name="content" required data-validation-required-message="Please enter blog content">{{ post.content|safe }}</textarea>
+        </div>
+        <br>
+        <div>
+            <button type="submit">Save</button>
+        </div>
+    </form>
+
+    <br />
+    <br />
+    <hr>
+
+
+    <footer>
+        <p>Project Python</p>
+        <p>Nguyễn Anh Phương, Huỳnh Hải Phong, Nguyễn Công Nguyên</p>
+    </footer>
+
+
+
+
+</body>
+
+</html>

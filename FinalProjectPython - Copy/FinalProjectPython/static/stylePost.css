@@ -1,0 +1,113 @@
+body {
+    margin-top: 0;
+    /*background-image: linear-gradient(to right,#659999, #f4791f);*/
+}
+
+form {
+    padding-bottom: 50px;
+    padding-left: 200px;
+}
+
+header {
+    padding-top: 5px;
+    background-image: url('home-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+    header div {
+        padding-top: 130px;
+        padding-bottom: 130px;
+        font-size: 50px;
+        color: white;
+    }
+
+        header div h1 {
+            text-align: center;
+        }
+
+        header div p {
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        header div span {
+            padding-left: 30px;
+            text-align: center;
+            font-family: 'Times New Roman';
+            font-size: 25px;
+            font-family: 'Mongolian Baiti';
+        }
+
+
+
+article div {
+    margin: 100px;
+    font-size: 20px;
+    font-family: 'Times New Roman';
+    font-weight: bold;
+}
+
+div a {
+    color: darkred;
+    font-size: 25px;
+    text-decoration: none;
+    padding-top: 200px;
+    font-weight: bold;
+    opacity: 0.7;
+}
+
+    div a:hover {
+        opacity: 1;
+        font-weight: bolder;
+        transition: 1s;
+    }
+
+#cmt {
+
+    color:black;
+    opacity:1;
+    background: #87ccb3;
+    border-radius: 25px;
+    border: 1px solid rgb(251, 196, 196);
+    box-sizing: border-box;
+    color: #de5959;
+    float: none;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+
+    outline: 0px;
+    padding: 15px 20px;
+  
+}
+
+    
+
+button {
+    background-color: forestgreen;
+    margin: auto;
+    color: white;
+    padding: 10px;
+    border: inset;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 10px;
+    opacity: 0.7;
+}
+
+    button:hover {
+        opacity: 1;
+        transition: 0.5s;
+    }
+
+input[type=text] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    box-sizing: border-box;
+    font-size: 15px;
+}

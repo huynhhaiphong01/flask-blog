@@ -1,0 +1,76 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Flask Blog</title>
+    <link href="{{ url_for('static', filename='styleIndex.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styleAll.css') }}" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+
+    <section id="nav-section">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+
+                {% if user %}
+                <li><a href="{{ url_for('add') }}">Add</a></li>
+                <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                <li style="padding-left:650px"><a href="{{ url_for('login') }}">{{user}}</a></li>
+
+                {% else %}
+                <li style="padding-left:700px"><a href="{{ url_for('login') }}">Login</a></li>
+                {%endif %}
+
+            </ul>
+        </nav>
+    </section>
+
+
+    <header>
+        <div>
+            <h1>MY BLOG</h1>
+            <p>Social Blogging Application</p>
+        </div>
+    </header>
+
+
+    {% for post in posts %}
+    <div>
+        <a href="{{ url_for('post', post_id=post.id) }}">
+            <h2>
+                {{ post.title }}
+            </h2>
+            <h3>
+                {{ post.subtitle }}
+            </h3>
+        </a>
+        <h3>Posted by {{ post.author }} on {{ post.date_posted.strftime('%B %d, %Y') }}</h3>
+        <hr>
+        <br />
+
+    </div>
+    {% endfor %}
+    <hr>
+
+    <footer>
+        <p>Project Python</p>
+        <p>Nguyễn Anh Phương, Huỳnh Hải Phong, Nguyễn Công Nguyên</p>
+
+    </footer>
+
+</body>
+
+</html>

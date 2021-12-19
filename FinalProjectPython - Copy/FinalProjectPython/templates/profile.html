@@ -1,0 +1,68 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Flask Blog</title>
+    <link href="{{ url_for('static', filename='styleAll.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styleProfile.css') }}" rel="stylesheet">
+</head>
+
+<body>
+
+    <section id="nav-section" >
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('add') }}">Add</a></li>
+                <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                <li style="padding-left:650px"><a href="{{ url_for('login') }}">{{user.fullname}}</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <div style="padding-left:500px;padding-top:200px;" class="container d-flex justify-content-center align-items-center">
+        <div class="card">
+            <div class="upper"> <img src="https://i.imgur.com/Qtrsrk5.jpg" class="img-fluid"> </div>
+            <div class="user text-center">
+                <div class="profile"> <img src="../static/login-bg.png" class="rounded-circle" width="80"> </div>
+            </div>
+            <div id="name"><h2>{{user.fullname}}</h2></div>
+            <form name="Profile" method="POST" action="{{ url_for('updateprofile') }}">
+                <div>
+                    Post : &nbsp; {{count}}
+                </div>
+                <div>
+                    Gmail &nbsp; <input type="text" name="gmail" value="{{user.gmail}}">
+                </div>
+                <div>
+                    Phone <input type="text" name="phone" value="{{user.numberphone}}">
+                </div>
+                <div>
+                    Note &nbsp;&nbsp;&nbsp;<input type="text" name="note" value="{{user.note}}">
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <button style="padding-left:20px" type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+
+    <footer >
+        <p>Project Python</p>
+        <p>Nguyễn Anh Phương, Huỳnh Hải Phong, Nguyễn Công Nguyên</p>
+    </footer>
+
+
+</body>
+
+</html>

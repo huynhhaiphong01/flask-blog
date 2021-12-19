@@ -1,0 +1,83 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>FLask Blog</title>
+    <link href="{{ url_for('static', filename='stylePost.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styleAll.css') }}" rel="stylesheet">
+</head>
+
+<body>
+
+    <section id="nav-section">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                {% if user %}
+                <li><a href="{{ url_for('add') }}">Add</a></li>
+                <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                <li style="padding-left:650px"><a href="{{ url_for('login') }}">{{user}}</a></li>
+                {% else %}
+                <li><a href="#">Add</a></li>
+                <li style="padding-left:700px"><a href="{{ url_for('login') }}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </section>
+
+    <header>
+        <div>
+            <h1>{{ post.title }}</h1>
+            <p>{{ post.subtitle }}</p>
+            <span>
+                Posted by
+                {{ post.author }}
+                on {{ post.date_posted.strftime('%B %d, %Y') }}
+            </span>
+        </div>
+    </header>
+
+    <article>
+        <div>
+            {{ post.content|safe }}
+        </div>
+    </article>
+    <hr />
+    {% for cmt in cmts %}
+    <div style="padding-top:30px;margin-left:50px;font-size:20px">
+        Comment by <b>{{ cmt.author }}</b>  on {{ cmt.date.strftime('%B %d, %Y') }} :
+        <a id="cmt"> {{cmt.content}} </a>
+    </div>
+    {% endfor %}
+    <br />
+    <br />
+    {% if user %}
+    <form style="font-size:30px" action="{{ url_for('addcomment',post_id=post.id) }}" method="post">
+        Comment : <input type="text" name="content" required>
+        <button type="submit">Send</button>
+
+    </form>
+    {% endif %}
+    {% if admin %}
+
+    <div>
+        <a style="margin-left:500px" href="{{ url_for('update',post_id=post.id) }}">Update</a>
+        <a style="margin-left:150px" href="{{ url_for('deletepost',post_id=post.id) }}">Delete</a>
+    </div>
+    {% endif %}
+
+
+    <footer>
+        <p>Project Python</p>
+        <p>Nguyễn Anh Phương, Huỳnh Hải Phong, Nguyễn Công Nguyên</p>
+    </footer>
+
+</body>
+
+</html>

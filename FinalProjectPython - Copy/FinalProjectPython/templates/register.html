@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Flask Blog</title>
+    <link href="{{ url_for('static', filename='login.css') }}" rel="stylesheet">
+</head>
+<body>
+    {% if error %}
+    <script>
+        window.alert("Registor Failed!!!");
+    </script>
+    {% endif %}
+    <h2>Register Form</h2>
+
+    <form name="loginForm" method="POST" action="{{ url_for('registersuccess') }}" >
+        <div class="imgcontainer">
+            <img src="../static/login-bg.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+
+            <label for="fname"><b>fullname</b></label>
+            <input type="text" placeholder="Full Username" name="fullname" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+
+            <label for="cpsw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Confirm Password" name="confirmpassword" required>
+
+            <button type="submit">Register</button>
+
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <a href="{{ url_for('index') }}">Cancel</a>           
+        </div>
+    </form>
+    <hr />
+    <footer>
+        <p>Project Python</p>
+        <p>Nguyễn Anh Phương, Huỳnh Hải Phong, Nguyễn Công Nguyên</p>
+
+    </footer>
+
+</body>
+</html>
